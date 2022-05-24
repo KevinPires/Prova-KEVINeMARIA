@@ -70,12 +70,24 @@ export function MaiorNumero(numeros)
 }
 
 export function contarCaracter(texto, caracter){
-  let qdt= 0;
+  let qtd= 0;
 
   for (let cont = 0; cont < texto.lenght; cont++)
   {
       if (texto [cont].toUpperCase() == caracter.toUpperCase())
-      qdt++;
+      qtd++;
   }
-  return qdt;
+  return qtd;
+}
+
+export function tabuada(numero)
+{
+
+let resultado = numero;
+
+for(let contador = 1; contador <= 11; contador++)
+{
+resultado = numero * contador;
+}
+return resultado;
 }

@@ -1,4 +1,4 @@
-import { dobro, somar, media, temperatura, primaria, IngressoCinema, MaiorNumero, contarCaracter} from './services.js'
+import { dobro, somar, media, temperatura, primaria, IngressoCinema, MaiorNumero, contarCaracter, tabuada} from './services.js'
 import { Router } from 'express'
 
 
@@ -122,4 +122,13 @@ server.get('/dia2/contarCaracter/:texto/:caracter', (req, resp) =>{
     })
 })
 
+
+server.get('/tabuada', (req, resp) =>{
+    let numero = Number(req.query.numero) 
+
+    const x = tabuada(numero)
+     resp.send({
+         tabuada: x
+     })
+})
  export default server; 
