@@ -25,12 +25,13 @@ export function temperatura(temp){
 export function primaria(cor){
     let msg = true;
 
-    if(cor !='amarelo' && cor !='vermelho' && cor !='azul')
+    if(cor =='amarelo' || cor =='vermelho' || cor =='azul')
+    {
+        return msg;
+    }
+    else 
     {
         msg = false;
-    }
-    else{
-        msg = true;
     }
     return msg;
 }
@@ -69,11 +70,12 @@ export function MaiorNumero(numeros)
 }
 
 export function contarCaracter(texto, caracter){
-    let qdt = 0;
-    
-    for(let cont = 0; cont < texto.length; cont++) {
-        if(texto[cont].toString()= caracter.toString())
-        qtd++;
-    }
-    return qtd;
+  let qdt= 0;
+
+  for (let cont = 0; cont < texto.lenght; cont++)
+  {
+      if (texto [cont].toUpperCase() == caracter.toUpperCase())
+      qdt++;
+  }
+  return qdt;
 }

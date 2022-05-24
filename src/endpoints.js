@@ -81,8 +81,8 @@ server.get('/temperatura', (req, resp) =>{
     }
 })
 
-server.get('/dia2/primaria:cor', (req, resp) => {  
-    let cor = Boolean(req.params.numero);
+server.get('/dia2/primaria/:cor', (req, resp) => {  
+    let cor = req.params.cor;
     
     const d = primaria(cor); 
     
@@ -114,7 +114,7 @@ server.post('/dia2/MaiorNumero', (req, resp) =>{
 
 server.get('/dia2/contarCaracter/:texto/:caracter', (req, resp) =>{
     let texto = req.params.texto;
-    let caracter = Number(req.params.digito);
+    let caracter= parseFloat (req.params.caracter);
 
     const x = contarCaracter(texto, caracter) 
     resp.send({
