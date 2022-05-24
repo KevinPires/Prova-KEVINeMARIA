@@ -68,3 +68,12 @@ export function MaiorNumero(numeros)
 
 }
 
+export function contarCaracter(texto, caracter){
+    let qdt = 0;
+    
+    for(let cont = 0; cont < texto.length; cont++) {
+        if(texto[cont].toString()= caracter.toString())
+        qtd++;
+    }
+    return qtd;
+}

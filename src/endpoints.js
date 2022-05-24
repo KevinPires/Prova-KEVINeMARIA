@@ -1,4 +1,4 @@
-import { dobro, somar, media, temperatura, primaria, IngressoCinema, MaiorNumero} from './services.js'
+import { dobro, somar, media, temperatura, primaria, IngressoCinema, MaiorNumero, contarCaracter} from './services.js'
 import { Router } from 'express'
 
 
@@ -112,4 +112,14 @@ server.post('/dia2/MaiorNumero', (req, resp) =>{
      })
 })
 
- export default server;
+server.get('/dia2/contarCaracter/:texto/:caracter', (req, resp) =>{
+    let texto = req.params.texto;
+    let caracter = Number(req.params.digito);
+
+    const x = contarCaracter(texto, caracter) 
+    resp.send({
+        contarCaracter: x
+    })
+})
+
+ export default server; 
