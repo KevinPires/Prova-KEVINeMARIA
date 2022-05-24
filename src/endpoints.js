@@ -125,8 +125,9 @@ server.get('/dia2/contarCaracter/:texto/:caracter', (req, resp) =>{
 
 server.get('/tabuada', (req, resp) =>{
     let numero = Number(req.query.numero) 
+    let multiplicacao = Number(req.query.multiplicacao)
 
-    const x = tabuada(numero)
+    const x = tabuada(numero, multiplicacao)
      resp.send({
          tabuada: x
      })

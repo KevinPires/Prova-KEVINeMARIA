@@ -80,12 +80,12 @@ export function contarCaracter(texto, caracter){
   return qtd;
 }
 
-export function tabuada(numero)
+export function tabuada(numero, multiplicacao)
 {
 
 let resultado = numero;
 
-for(let contador = 1; contador <= 11; contador++)
+for(let contador = 1; contador <= multiplicacao; contador++)
 {
 resultado = numero * contador;
 }
