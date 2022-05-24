@@ -1,4 +1,4 @@
-import { dobro, somar, media, temperatura} from './services.js'
+import { dobro, somar, media, temperatura, primaria, IngressoCinema, MaiorNumero} from './services.js'
 import { Router } from 'express'
 
 
@@ -79,6 +79,37 @@ server.get('/temperatura', (req, resp) =>{
             erro: err.message
         })
     }
+})
+
+server.get('/dia2/primaria:cor', (req, resp) => {  
+    let cor = Boolean(req.params.numero);
+    
+    const d = primaria(cor); 
+    
+    resp.send({primaria: d});
+
+})
+
+
+server.post('/dia2/ingressoCinema', (req, resp) => {
+    
+    let inteiras = req.body.inteiras;
+    let meias = req.body.meias;
+    let diaSemana = req.body.diaSemana;
+    let nacionalidade = req.body.nacionalidade;
+    const x = IngressoCinema(inteiras,meias,diaSemana,nacionalidade);
+       resp.send({
+        media: x
+    })    
+})
+
+server.post('/dia2/MaiorNumero', (req, resp) =>{
+    let numeros = req.body.numeros
+
+    const maior = MaiorNumero(numeros)
+     resp.send({
+         MaiorNumero: maior
+     })
 })
 
  export default server;

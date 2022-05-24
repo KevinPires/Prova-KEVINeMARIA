@@ -22,3 +22,49 @@ export function temperatura(temp){
     return msg;
 }
 
+export function primaria(cor){
+    let msg = true;
+
+    if(cor !='amarelo' && cor !='vermelho' && cor !='azul')
+    {
+        msg = false;
+    }
+    else{
+        msg = true;
+    }
+    return msg;
+}
+
+export function IngressoCinema(inteiras,meias,diaSemana, nacionalidade)
+{
+    let total = 0;
+    
+    if (nacionalidade == "brasileira")
+    {
+        return(inteiras + meias) *  5;
+    }
+    else if (diaSemana == "quarta-feira")
+    {
+        total = (inteiras + meias) * 14.25;
+    }
+    else {
+        total = (inteiras * 28.50) + (meias * 14.25);
+    }
+    return total;
+}
+
+export function MaiorNumero(numeros)
+{
+    let maior = -1;
+
+    for (let item of numeros)
+    {
+        if (item > maior)
+        {
+            maior = item;
+        }
+    }
+    return maior;
+
+}
+
