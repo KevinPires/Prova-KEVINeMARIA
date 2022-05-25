@@ -1,4 +1,4 @@
-import { dobro, somar, media, temperatura, primaria, IngressoCinema, MaiorNumero, contarCaracter, tabuada} from './services.js'
+import { dobro, somar, media, temperatura, primaria, IngressoCinema, tabuada, frequenciaCaracter, maiorNumero} from './services.js'
 import { Router } from 'express'
 
 
@@ -99,27 +99,38 @@ server.post('/dia2/ingressoCinema', (req, resp) => {
     let nacionalidade = req.body.nacionalidade;
     const x = IngressoCinema(inteiras,meias,diaSemana,nacionalidade);
        resp.send({
-        media: x
+        total: x
     })    
 })
 
-server.post('/dia2/MaiorNumero', (req, resp) =>{
-    let numeros = req.body.numeros
-
-    const maior = MaiorNumero(numeros)
+server.post('/dia2/maiorNumero', (req, resp) =>{
+    try{
+    const numeros = req.body;
+    const maior = maiorNumero(numeros)
      resp.send({
-         MaiorNumero: maior
+         maior: maior
      })
+    }catch(err) {
+        resp.send({
+        erro: err.message
+        })
+    }
 })
 
-server.get('/dia2/contarCaracter/:texto/:caracter', (req, resp) =>{
-    let texto = req.params.texto;
-    let caracter= parseFloat (req.params.caracter);
-
-    const x = contarCaracter(texto, caracter) 
-    resp.send({
-        contarCaracter: x
-    })
+server.get('/dia2/freqcaractere/:texto/:caractere', (req, resp) =>{
+    try{
+        
+        const texto = req.params.texto;
+        const caractere = req.params.caractere
+        const freq = frequenciaCaracter(texto, caractere);
+        resp.send({ 
+            freq: freq
+        })
+    } catch(err){
+        resp.send({
+            erro: err.message
+        })
+    }
 })
 
 

@@ -54,27 +54,25 @@ export function IngressoCinema(inteiras,meias,diaSemana, nacionalidade)
     return total;
 }
 
-export function MaiorNumero(numeros)
+export function maiorNumero(numeros)
 {
-    let maior = -1;
+    let maior = Number.MIN_VALUE;
 
-    for (let item of numeros)
-    {
+    for (let item of numeros) {
         if (item > maior)
-        {
             maior = item;
-        }
+        
     }
     return maior;
 
 }
 
-export function contarCaracter(texto, caracter){
+export function frequenciaCaracter(texto, caractere){
   let qtd= 0;
 
-  for (let cont = 0; cont < texto.lenght; cont++)
+  for (let letra of texto)
   {
-      if (texto [cont].toUpperCase() == caracter.toUpperCase())
+      if (letra == caractere)
       qtd++;
   }
   return qtd;
